@@ -29,7 +29,7 @@ class RemoteDevice:
     def status(self):
         c = self.call("projector_status.cgi?lang=en")
         data = self.parse(c)
-        print json.dumps(data))
+        return json.dumps(data))
 
     def parse(self, content):
         result = fromstring(content)
@@ -59,4 +59,4 @@ if __name__=="__main__":
     # testing("status.1.html")
     # testing("status.2.html")
     rd = RemoteDevice(*sys.argv[1:3])
-    rd.status
+    print rd.status()
